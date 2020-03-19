@@ -11,26 +11,26 @@
 		<link rel="stylesheet" href="assets/fa/css/all.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
 		<script>if (location.protocol !== "https:") location.protocol = "https:";</script>
-
-		<!-- Matomo -->
+		
+		<!-- Start Open Web Analytics Tracker -->
 		<script type="text/javascript">
-			var _paq = window._paq || [];
-			// require user consent before processing data
-			_paq.push(['requireConsent']);
-			_paq.push(['trackPageview']);
-			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-			_paq.push(['trackPageView']);
-			_paq.push(['enableLinkTracking']);
-			(function() {
-			var u="//matomo.tainton.uk/";
-			_paq.push(['setTrackerUrl', u+'matomo.php']);
-			_paq.push(['setSiteId', '2']);
-			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-			})();
+		//<![CDATA[
+		var owa_baseUrl = 'https://analytics.tainton.uk/';
+		var owa_cmds = owa_cmds || [];
+		owa_cmds.push(['setSiteId', '947c16aa1f6a6cbba7adf67a0bcd4daf']);
+		owa_cmds.push(['trackPageView']);
+		owa_cmds.push(['trackClicks']);
+
+		(function() {
+			var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+			owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+			_owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
+			var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+		}());
+		//]]>
 		</script>
-		<noscript><p><img src="//matomo.tainton.uk/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-		<!-- End Matomo Code -->
+		<!-- End Open Web Analytics Code -->
+
 	</head>
 	<body>
 		<div id="wrapper">
