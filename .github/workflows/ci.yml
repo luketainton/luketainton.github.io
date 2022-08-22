@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - 'renovate.json'
+      - 'CNAME'
+      - '.gitignore'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint
+        uses: wearerequired/lint-action@v2
+        with:
+          stylelint: true
+      - name: Lint
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_HTML: true
+          VALIDATE_CSS: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
