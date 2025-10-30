@@ -1,5 +1,6 @@
 {
-  "extends": [
-    "config:recommended"
-  ]
+  "extends": ["config:recommended"],
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "deps",
+  "semanticCommitType": "feat"
 }
